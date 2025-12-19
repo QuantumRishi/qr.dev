@@ -51,8 +51,8 @@ export interface SupabaseConnectionState {
   credentials?: SupabaseCredentials;
 }
 
-const savedConnection = typeof localStorage !== 'undefined' ? localStorage.getItem('supabase_connection') : null;
-const savedCredentials = typeof localStorage !== 'undefined' ? localStorage.getItem('supabaseCredentials') : null;
+const savedConnection = null; // typeof localStorage !== 'undefined' ? localStorage.getItem('supabase_connection') : null;
+const savedCredentials = null; // typeof localStorage !== 'undefined' ? localStorage.getItem('supabaseCredentials') : null;
 
 const initialState: SupabaseConnectionState = savedConnection
   ? JSON.parse(savedConnection)
@@ -122,7 +122,7 @@ export function updateSupabaseConnection(connection: Partial<SupabaseConnectionS
   /*
    * Always save the connection state to localStorage to persist across chats
    */
-  if (connection.user || connection.token || connection.selectedProjectId !== undefined || connection.credentials) {
+  if (typeof window !== 'undefined' && (connection.user || connection.token || connection.selectedProjectId !== undefined || connection.credentials)) {
     localStorage.setItem('supabase_connection', JSON.stringify(newState));
 
     if (newState.credentials) {
@@ -130,7 +130,7 @@ export function updateSupabaseConnection(connection: Partial<SupabaseConnectionS
     } else {
       localStorage.removeItem('supabaseCredentials');
     }
-  } else {
+  } else if (typeof window !== 'undefined') {
     localStorage.removeItem('supabase_connection');
     localStorage.removeItem('supabaseCredentials');
   }
