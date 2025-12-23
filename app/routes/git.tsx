@@ -7,7 +7,10 @@ import { Header } from '~/components/header/Header';
 import BackgroundRays from '~/components/ui/BackgroundRays';
 
 export const meta: MetaFunction = () => {
-  return [{ title: 'QR.dev' }, { name: 'description', content: 'Talk with QR.dev, an AI coding assistant by Quantum Rishi' }];
+  return [
+    { title: 'QR.dev' },
+    { name: 'description', content: 'Talk with QR.dev, an AI coding assistant by Quantum Rishi' },
+  ];
 };
 
 export async function loader(args: LoaderFunctionArgs) {
