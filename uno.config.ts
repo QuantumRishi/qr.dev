@@ -5,7 +5,7 @@ import { defineConfig, presetIcons, presetUno, transformerDirectives } from 'uno
 
 const iconPaths = globSync('./icons/*.svg');
 
-const collectionName = 'bolt';
+const collectionName = 'qr';
 
 const customIconCollection = iconPaths.reduce(
   (acc, iconPath) => {

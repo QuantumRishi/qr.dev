@@ -86,7 +86,7 @@ async function waitForServer(port, serverName) {
  */
 async function buildElectronDeps() {
   return new Promise((resolve, reject) => {
-    const buildProcess = spawn('pnpm', ['electron:build:deps'], {
+    const buildProcess = spawn('npm', ['run', 'electron:build:deps'], {
       stdio: 'inherit',
       env: { ...process.env },
     });
