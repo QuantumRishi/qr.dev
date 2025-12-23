@@ -277,7 +277,7 @@ export const ChatBox: React.FC<ChatBoxProps> = (props) => {
               {props.enhancingPrompt ? (
                 <div className="i-svg-spinners:90-ring-with-bg text-bolt-elements-loader-progress text-xl animate-spin"></div>
               ) : (
-                <div className="i-bolt:stars text-xl"></div>
+                <div className="i-qr:stars text-xl"></div>
               )}
             </IconButton>
 
